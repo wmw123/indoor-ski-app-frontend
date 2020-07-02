@@ -1,5 +1,6 @@
 ---
 title: "Ski-In"
+location: "South Holland"
 date: "2020-06-30"
 ---
 
