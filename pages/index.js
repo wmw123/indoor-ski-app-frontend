@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>Ski Indoor Places in the Netherlands</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
