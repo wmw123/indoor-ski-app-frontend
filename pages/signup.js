@@ -10,14 +10,12 @@ export default function SignUp() {
         <title>Sign up</title>
       </Head>
       <NavBar />
-      <Layout>
-        <h1>Sign up</h1>
-        <h2>
-          <Link href="/">
-            <a>Back to home</a>
-          </Link>
-        </h2>
-      </Layout>
+      <h1>Sign up</h1>
+      <h2>
+        <Link href="/">
+          <a>Back to home</a>
+        </Link>
+      </h2>
     </>
   );
 }

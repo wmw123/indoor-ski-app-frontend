@@ -25,37 +25,35 @@ export default function Home({ allIndoorskiplacesData }) {
         <title>Indoor Ski Places in the Netherlands</title>
       </Head>
       <NavBar />
-      <Layout>
-        <img
-          src="https://www.dagjeweg.nl/img/afb/0/2/7/r0-0d-300-225-1cf-kind_kinderpiste_snowplanet-1556270036.jpeg"
-          alt="indoor ski places"
-        ></img>
-        <h2 className={utilStyles.headingLg}>
-          Indoor Ski Places in the Netherlands
-        </h2>
-        <ul className={utilStyles.list}>
-          {indoorskiplaces.map(
-            ({
-              id,
-              name,
-              website,
-              location,
-              imageUrl,
-              priceAveragePerHour,
-              rating,
-            }) => (
-              <li className={utilStyles.listItem} key={id}>
-                <img src={imageUrl} alt={name}></img>
-                {name}
-                <br />
-                {website}
-                <br />
-                {location}
-              </li>
-            )
-          )}
-        </ul>
-      </Layout>
+      <img
+        src="https://www.dagjeweg.nl/img/afb/0/2/7/r0-0d-300-225-1cf-kind_kinderpiste_snowplanet-1556270036.jpeg"
+        alt="indoor ski places"
+      ></img>
+      <h2 className={utilStyles.headingLg}>
+        Indoor Ski Places in the Netherlands
+      </h2>
+      <ul className={utilStyles.list}>
+        {indoorskiplaces.map(
+          ({
+            id,
+            name,
+            website,
+            location,
+            imageUrl,
+            priceAveragePerHour,
+            rating,
+          }) => (
+            <li className={utilStyles.listItem} key={id}>
+              <img src={imageUrl} alt={name}></img>
+              {name}
+              <br />
+              {website}
+              <br />
+              {location}
+            </li>
+          )
+        )}
+      </ul>
     </>
   );
 }
