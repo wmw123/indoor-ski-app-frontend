@@ -2,14 +2,14 @@ import Link from "next/link";
 import Head from "next/head";
 import Layout from "../components/layout";
 
-export default function About() {
+export default function SignUp() {
   return (
     <>
       <Layout>
         <Head>
-          <title>About</title>
+          <title>Sign up</title>
         </Head>
-        <h1>About</h1>
+        <h1>Sign up</h1>
         <h2>
           <Link href="/">
             <a>Back to home</a>

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
+import Link from "next/link";
 
 export async function getStaticProps() {
   const res = await fetch("http://localhost:4000/indoorskiplaces");
@@ -47,6 +48,18 @@ export default function Home({ allIndoorskiplacesData }) {
           )}
         </ul>
       </section>
+      <ul>
+        <li>
+          <Link href="/about">
+            <a title="About">About</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/signup">
+            <a title="Sign up">Sign up</a>
+          </Link>
+        </li>
+      </ul>
     </Layout>
   );
 }
