@@ -2,6 +2,7 @@ import Head from "next/head";
 import Layout from "../components/Layout";
 import utilStyles from "../styles/utils.module.css";
 import NavBar from "../components/NavBar";
+import Link from "next/link";
 
 export async function getStaticProps() {
   const res = await fetch("http://localhost:4000/indoorskiplaces");
@@ -50,6 +51,10 @@ export default function Home({ allIndoorskiplacesData }) {
               {website}
               <br />
               {location}
+              <br />
+              <Link href="/[id]" as={`${id}`}>
+                <a>Show details</a>
+              </Link>
             </li>
           )
         )}
