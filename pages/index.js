@@ -21,7 +21,7 @@ export default function Home({ allIndoorskiplacesData }) {
   const indoorskiplaces = allIndoorskiplacesData.indoorskiplaces;
 
   return (
-    <Layout home>
+    <>
       <Head>
         <title>{siteTitle}</title>
       </Head>
@@ -50,6 +50,6 @@ export default function Home({ allIndoorskiplacesData }) {
           )}
         </ul>
       </section>
-    </Layout>
+    </>
   );
 }
