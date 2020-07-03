@@ -3,14 +3,14 @@ import Head from "next/head";
 import NavBar from "../components/NavBar";
 import Layout from "../components/Layout";
 
-export default function About() {
+export default function SignUp() {
   return (
     <>
       <Head>
-        <title>About</title>
+        <title>Sign up</title>
       </Head>
       <NavBar />
-      <h1>About</h1>
+      <h1>Sign up</h1>
       <h2>
         <Link href="/">
           <a>Back to home</a>

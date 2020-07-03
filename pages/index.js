@@ -1,6 +1,7 @@
 import Head from "next/head";
-import Layout, { siteTitle } from "../components/layout";
+import Layout from "../components/Layout";
 import utilStyles from "../styles/utils.module.css";
+import NavBar from "../components/NavBar";
 
 export async function getStaticProps() {
   const res = await fetch("http://localhost:4000/indoorskiplaces");
@@ -19,34 +20,40 @@ export default function Home({ allIndoorskiplacesData }) {
   const indoorskiplaces = allIndoorskiplacesData.indoorskiplaces;
 
   return (
-    <Layout home>
+    <>
       <Head>
-        <title>{siteTitle}</title>
+        <title>Indoor Ski Places in the Netherlands</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-        <p>Take a look at the first indoor ski place</p>
-        <div>
-          <a href="https://youtube.com">Show me!</a>
-        </div>
-      </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>
-          Indoor Ski Places in the Netherlands
-        </h2>
-        <ul className={utilStyles.list}>
-          {indoorskiplaces.map(
-            ({ id, name, website, location, priceAveragePerHour, rating }) => (
-              <li className={utilStyles.listItem} key={id}>
-                {name}
-                <br />
-                {website}
-                <br />
-                {location}
-              </li>
-            )
-          )}
-        </ul>
-      </section>
-    </Layout>
+      <NavBar />
+      <img
+        src="https://www.dagjeweg.nl/img/afb/0/2/7/r0-0d-300-225-1cf-kind_kinderpiste_snowplanet-1556270036.jpeg"
+        alt="indoor ski places"
+      ></img>
+      <h2 className={utilStyles.headingLg}>
+        Indoor Ski Places in the Netherlands
+      </h2>
+      <ul className={utilStyles.list}>
+        {indoorskiplaces.map(
+          ({
+            id,
+            name,
+            website,
+            location,
+            imageUrl,
+            priceAveragePerHour,
+            rating,
+          }) => (
+            <li className={utilStyles.listItem} key={id}>
+              <img src={imageUrl} alt={name}></img>
+              {name}
+              <br />
+              {website}
+              <br />
+              {location}
+            </li>
+          )
+        )}
+      </ul>
+    </>
   );
 }
