@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: grey;
+  padding-left: 1em;
+}
+
+.container ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container ul li {
+  margin-right: 1em;
+}
+
+.container ul li a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
