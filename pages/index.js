@@ -16,30 +16,7 @@ export async function getStaticProps() {
   };
 }
 
-export async function getAllIndoorskiplacesIds() {
-  const res = await fetch("http://localhost:4000/indoorskiplaces");
-  const allIndoorskiplacesData = await res.json();
-
-  return allIndoorskiplacesData.map((indoorskiplaceData) => {
-    return {
-      params: {
-        id: indoorskiplaceData.name,
-      },
-    };
-  });
-}
-
-export async function getStaticPaths() {
-  const paths = getAllIndoorskiplacesIds();
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
 export default function Home({ allIndoorskiplacesData }) {
-  //console.log("allIndoorskiplacesData", allIndoorskiplacesData.indoorskiplaces);
-
   const indoorskiplaces = allIndoorskiplacesData.indoorskiplaces;
 
   return (

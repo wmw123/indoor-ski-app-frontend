@@ -4,10 +4,10 @@ import Head from "next/head";
 import NavBar from "../../components/NavBar";
 import fetch from "node-fetch";
 
-export default function IndoorskiplacePage({ indoorskiplacesData }) {
+export default function IndoorskiplacePage({ indoorskiplace }) {
   const router = useRouter();
 
-  console.log("indoorskiplacesData", indoorskiplacesData);
+  console.log("indoorskiplacesData", indoorskiplace);
 
   return (
     <>
@@ -15,7 +15,7 @@ export default function IndoorskiplacePage({ indoorskiplacesData }) {
         <title>Indoor ski place Page</title>
       </Head>
       <NavBar />
-      <h2>name</h2>
+      <h2>{indoorskiplace.hljs - name}</h2>
     </>
   );
 }
@@ -24,11 +24,11 @@ export async function getStaticProps(context) {
   const { id } = context.params;
 
   const res = await fetch(`http://localhost:4000/indoorskiplaces/${id}`);
-  const indoorskiplacesData = await res.json();
+  const indoorskiplace = await res.json();
 
   return {
     props: {
-      indoorskiplacesData,
+      indoorskiplace,
     },
   };
 }
