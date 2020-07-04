@@ -2,6 +2,8 @@ import Head from "next/head";
 import Layout from "../components/Layout";
 import utilStyles from "../styles/utils.module.css";
 import NavBar from "../components/NavBar";
+import Link from "next/link";
+import fetch from "node-fetch";
 
 export async function getStaticProps() {
   const res = await fetch("http://localhost:4000/indoorskiplaces");
@@ -15,8 +17,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allIndoorskiplacesData }) {
-  //console.log("allIndoorskiplacesData", allIndoorskiplacesData.indoorskiplaces);
-
   const indoorskiplaces = allIndoorskiplacesData.indoorskiplaces;
 
   return (
@@ -33,26 +33,20 @@ export default function Home({ allIndoorskiplacesData }) {
         Indoor Ski Places in the Netherlands
       </h2>
       <ul className={utilStyles.list}>
-        {indoorskiplaces.map(
-          ({
-            id,
-            name,
-            website,
-            location,
-            imageUrl,
-            priceAveragePerHour,
-            rating,
-          }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <img src={imageUrl} alt={name}></img>
-              {name}
-              <br />
-              {website}
-              <br />
-              {location}
-            </li>
-          )
-        )}
+        {indoorskiplaces.map(({ id, name, website, location, imageUrl }) => (
+          <li className={utilStyles.listItem} key={id}>
+            <img src={imageUrl} alt={name}></img>
+            {name}
+            <br />
+            {website}
+            <br />
+            {location}
+            <br />
+            <Link href="/[id]" as={`${id}`}>
+              <a>Show details</a>
+            </Link>
+          </li>
+        ))}
       </ul>
     </>
   );

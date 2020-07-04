@@ -1,32 +1,48 @@
-import {
-  getAllIndoorskiplacesIds,
-  getIndoorskiplaceData,
-} from "../../lib/indoorskiplaces";
+import Head from "next/head";
+import NavBar from "../../components/NavBar";
+import fetch from "node-fetch";
 
-export default function Indoorskiplace({ indoorskiplaceData }) {
-  console.log("isp data in function", indoorskiplaceData);
-  return <Layout>{indoorskiplaceData.name}</Layout>;
+export default function IndoorskiplacePage({ indoorskiplace }) {
+  return (
+    <>
+      <Head>
+        <title>Indoor ski place Page</title>
+      </Head>
+      <NavBar />
+      <img src={indoorskiplace.imageUrl} alt={indoorskiplace.name}></img>
+      <h2>{indoorskiplace.name}</h2>
+      <h3>{indoorskiplace.description}</h3>
+      <p>Type of facility: {indoorskiplace.facility}</p>
+      <p>Rating: {indoorskiplace.rating}</p>
+      <p>Average price per hour: €{indoorskiplace.priceAveragePerHour}</p>
+    </>
+  );
+}
+
+export async function getStaticProps(context) {
+  const { id } = context.params;
+
+  const res = await fetch(`http://localhost:4000/indoorskiplaces/${id}`);
+  const indoorskiplace = await res.json();
+
+  return {
+    props: {
+      indoorskiplace,
+    },
+  };
 }
 
 export async function getStaticPaths() {
-  // Return a list of possible value for id
-  const paths = getAllIndoorskiplacesIds();
+  const res = await fetch("http://localhost:4000/indoorskiplaces");
+  const allIndoorskiplacesData = await res.json();
+
+  const ids = allIndoorskiplacesData.indoorskiplaces.map(
+    (indoorskiplaceData) => indoorskiplaceData.id
+  );
+  const paths = ids.map((id) => ({ params: { id: `${id}` } }));
 
   return {
     paths,
     fallback: false,
-  };
-}
-
-export async function getStaticProps({ params }) {
-  // Fetch necessary data for the blog post using params.id
-  const indoorskiplaceData = getIndoorskiplaceData(params.id);
-
-  console.log("isp data in props", indoorskiplaceData);
-
-  return {
-    props: {
-      indoorskiplaceData,
-    },
   };
 }
