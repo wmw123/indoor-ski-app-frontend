@@ -33,30 +33,20 @@ export default function Home({ allIndoorskiplacesData }) {
         Indoor Ski Places in the Netherlands
       </h2>
       <ul className={utilStyles.list}>
-        {indoorskiplaces.map(
-          ({
-            id,
-            name,
-            website,
-            location,
-            imageUrl,
-            priceAveragePerHour,
-            rating,
-          }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <img src={imageUrl} alt={name}></img>
-              {name}
-              <br />
-              {website}
-              <br />
-              {location}
-              <br />
-              <Link href="/[id]" as={`${id}`}>
-                <a>Show details</a>
-              </Link>
-            </li>
-          )
-        )}
+        {indoorskiplaces.map(({ id, name, website, location, imageUrl }) => (
+          <li className={utilStyles.listItem} key={id}>
+            <img src={imageUrl} alt={name}></img>
+            {name}
+            <br />
+            {website}
+            <br />
+            {location}
+            <br />
+            <Link href="/[id]" as={`${id}`}>
+              <a>Show details</a>
+            </Link>
+          </li>
+        ))}
       </ul>
     </>
   );

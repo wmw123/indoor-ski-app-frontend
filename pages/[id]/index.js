@@ -1,21 +1,20 @@
-import { useRouter } from "next/router";
-import Link from "next/link";
 import Head from "next/head";
 import NavBar from "../../components/NavBar";
 import fetch from "node-fetch";
 
 export default function IndoorskiplacePage({ indoorskiplace }) {
-  const router = useRouter();
-
-  console.log("indoorskiplacesData", indoorskiplace);
-
   return (
     <>
       <Head>
         <title>Indoor ski place Page</title>
       </Head>
       <NavBar />
-      <h2>{indoorskiplace.hljs - name}</h2>
+      <img src={indoorskiplace.imageUrl} alt={indoorskiplace.name}></img>
+      <h2>{indoorskiplace.name}</h2>
+      <h3>{indoorskiplace.description}</h3>
+      <p>Type of facility: {indoorskiplace.facility}</p>
+      <p>Rating: {indoorskiplace.rating}</p>
+      <p>Average price per hour: €{indoorskiplace.priceAveragePerHour}</p>
     </>
   );
 }
