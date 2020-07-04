@@ -20,7 +20,10 @@ export default function IndoorskiplacePage({ indoorskiplace }) {
       {/* <Link href={`${indoorskiplace.id}/[reviews]`} as={`${indoorskiplace.id}/reviews`}>
               <a>Show details</a>
             </Link> */}
-      <Reviews />
+      <Reviews
+        indoorskiplaceId={indoorskiplace.id}
+        reviews={indoorskiplace.reviews}
+      />
     </>
   );
 }

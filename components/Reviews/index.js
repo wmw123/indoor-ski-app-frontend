@@ -1,24 +1,25 @@
 import fetch from "node-fetch";
+import { useRouter } from "next/router";
 
-export default function Reviews({ reviews }) {
-  console.log("reviews", reviews);
+export default function Reviews(props) {
+  //   const router = useRouter();
+  //   const { id } = router.query;
+
+  //   console.log("id from router", id);
+
+  const reviews = props.reviews;
 
   return (
     <>
-      <p>reviews</p>
+      {reviews.map((review, key) => {
+        return (
+          <div key={review.id}>
+            <p>{review.rating}</p>
+            <p>{review.rating}</p>
+            <p>{review.quote}</p>
+          </div>
+        );
+      })}
     </>
   );
-}
-
-export async function getStaticProps() {
-  const res = await fetch(`http://localhost:4000/indoorskiplaces/1/reviews`);
-  const reviews = await res.json();
-
-  console.log("data in static props", reviews);
-
-  return {
-    props: {
-      reviews,
-    },
-  };
 }
