@@ -1,14 +1,23 @@
 import fetch from "node-fetch";
 import { useRouter } from "next/router";
+import useSWR from "swr";
 import styles from "./style.module.css";
 
-export default function Reviews(props) {
-  //   const router = useRouter();
-  //   const { id } = router.query;
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-  //   console.log("id from router", id);
+export default function Reviews({ id }) {
+  const { data: reviews, error } = useSWR(
+    `http://localhost:4000/indoorskiplaces/${id}/reviews`,
+    fetcher
+  );
 
-  const reviews = props.reviews;
+  if (error) {
+    return <div>Error...</div>;
+  }
+
+  if (!reviews) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className={styles.container}>
