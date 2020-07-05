@@ -17,10 +17,7 @@ export default function IndoorskiplacePage({ indoorskiplace }) {
       <p>Type of facility: {indoorskiplace.facility}</p>
       <p>Rating: {indoorskiplace.rating}</p>
       <p>Average price per hour: €{indoorskiplace.priceAveragePerHour}</p>
-      {/* <Link href={`${indoorskiplace.id}/[reviews]`} as={`${indoorskiplace.id}/reviews`}>
-              <a>Show details</a>
-            </Link> */}
-      <Reviews id={indoorskiplace.id} reviews={indoorskiplace.reviews} />
+      <Reviews id={indoorskiplace.id} />
     </>
   );
 }
