@@ -1,6 +1,8 @@
 import Head from "next/head";
+import Link from "next/link";
 import NavBar from "../../components/NavBar";
 import fetch from "node-fetch";
+import Reviews from "../../components/Reviews";
 
 export default function IndoorskiplacePage({ indoorskiplace }) {
   return (
@@ -15,6 +17,7 @@ export default function IndoorskiplacePage({ indoorskiplace }) {
       <p>Type of facility: {indoorskiplace.facility}</p>
       <p>Rating: {indoorskiplace.rating}</p>
       <p>Average price per hour: €{indoorskiplace.priceAveragePerHour}</p>
+      <Reviews id={indoorskiplace.id} />
     </>
   );
 }
