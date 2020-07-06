@@ -1,5 +1,7 @@
+import React from "react";
+import { wrapper } from "../store";
 import "../styles/global.css";
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
-}
+const MyApp = ({ Component, pageProps }) => <Component {...pageProps} />;
+
+export default wrapper.withRedux(MyApp);

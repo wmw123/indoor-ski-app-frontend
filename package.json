@@ -11,8 +11,10 @@
     "classnames": "^2.2.6",
     "gray-matter": "^4.0.2",
     "next": "9.4.4",
+    "next-redux-wrapper": "^6.0.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-redux": "^7.2.0",
     "react-share": "^4.2.0",
     "swr": "^0.2.3"
   }
