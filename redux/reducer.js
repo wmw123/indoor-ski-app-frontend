@@ -1,30 +1,22 @@
-const reducer = (state = { tick: "init" }, action) => {
-  switch (action.type) {
-    case HYDRATE:
-      return {
-        ...state,
-        server: {
-          ...state.server,
-          ...action.payload.server,
-        },
-      };
-    case "CLIENT_SERVER":
-      return {
-        ...state,
-        server: {
-          ...state.server,
-          tick: action.payload,
-        },
-      };
-    case "CLIENT_ACTION":
-      return {
-        ...state,
-        client: {
-          ...state.client,
-          tick: action.payload,
-        },
-      };
-    default:
-      return state;
+import { combineReducers } from "redux";
+import { HYDRATE } from "next-redux-wrapper";
+import count from "./count/reducer";
+
+const combinedReducer = combineReducers({
+  count,
+});
+
+const reducer = (state, action) => {
+  if (action.type === HYDRATE) {
+    const nextState = {
+      ...state, // use previous state
+      ...action.payload, // apply delta from hydration
+    };
+    if (state.count) nextState.count = state.count; // preserve count value on client side navigation
+    return nextState;
+  } else {
+    return combinedReducer(state, action);
   }
 };
+
+export default reducer;

@@ -4,6 +4,7 @@ import NavBar from "../../components/NavBar";
 import fetch from "node-fetch";
 import Reviews from "../../components/Reviews";
 import SharingButtons from "../../components/SharingButtons";
+import AddCount from "../../components/AddCount";
 
 export default function IndoorskiplacePage({ indoorskiplace }) {
   return (
@@ -18,6 +19,7 @@ export default function IndoorskiplacePage({ indoorskiplace }) {
       <p>Type of facility: {indoorskiplace.facility}</p>
       <p>Rating: {indoorskiplace.rating}</p>
       <p>Average price per hour: €{indoorskiplace.priceAveragePerHour}</p>
+      <AddCount />
       <h3>Invite your friends!</h3>
       <SharingButtons id={indoorskiplace.id} name={indoorskiplace.name} />
       <h3>Reviews</h3>
