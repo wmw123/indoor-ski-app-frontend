@@ -2,7 +2,6 @@ import { createStore, applyMiddleware, combineReducers } from "redux";
 import { HYDRATE, createWrapper } from "next-redux-wrapper";
 import thunkMiddleware from "redux-thunk";
 import count from "./count/reducer";
-// import tick from './tick/reducer'
 
 const bindMiddleware = (middleware) => {
   if (process.env.NODE_ENV !== "production") {
@@ -14,7 +13,6 @@ const bindMiddleware = (middleware) => {
 
 const combinedReducer = combineReducers({
   count,
-  //   tick,
 });
 
 const reducer = (state, action) => {
@@ -35,26 +33,3 @@ const initStore = () => {
 };
 
 export const wrapper = createWrapper(initStore);
-
-// // store.ts
-
-// import { createStore } from "redux";
-// import { createWrapper, HYDRATE } from "next-redux-wrapper";
-
-// // create your reducer
-// const reducer = (state = { tick: "init" }, action) => {
-//   switch (action.type) {
-//     case HYDRATE:
-//       return { ...state, ...action.payload };
-//     case "TICK":
-//       return { ...state, tick: action.payload };
-//     default:
-//       return state;
-//   }
-// };
-
-// // create a makeStore function
-// const makeStore = (context) => createStore(reducer);
-
-// // export an assembled wrapper
-// export const wrapper = createWrapper(makeStore, { debug: true });
