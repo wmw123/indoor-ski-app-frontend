@@ -11,10 +11,7 @@ const AddCount = ({ count, addCount }) => {
           padding: 0 0 20px 0;
         }
       `}</style>
-      <h1>
-        AddCount: <span>{count}</span>
-      </h1>
-      <button onClick={addCount}>Add To Count</button>
+      <button onClick={addCount}>Add to wishlist</button>
     </div>
   );
 };

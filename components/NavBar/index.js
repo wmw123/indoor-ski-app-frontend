@@ -3,7 +3,7 @@ import styles from "./style.module.css";
 import { useSelector } from "react-redux";
 import { selectWishlistCount } from "../../redux/count/selector";
 
-export default function NavBar({ count }) {
+export default function NavBar() {
   const wishlistCount = useSelector(selectWishlistCount);
 
   return (
