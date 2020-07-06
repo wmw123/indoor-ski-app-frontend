@@ -3,6 +3,7 @@ import Link from "next/link";
 import NavBar from "../../components/NavBar";
 import fetch from "node-fetch";
 import Reviews from "../../components/Reviews";
+import SharingButtons from "../../components/SharingButtons";
 
 export default function IndoorskiplacePage({ indoorskiplace }) {
   return (
@@ -13,10 +14,13 @@ export default function IndoorskiplacePage({ indoorskiplace }) {
       <NavBar />
       <img src={indoorskiplace.imageUrl} alt={indoorskiplace.name}></img>
       <h2>{indoorskiplace.name}</h2>
-      <h3>{indoorskiplace.description}</h3>
+      <p>{indoorskiplace.description}</p>
       <p>Type of facility: {indoorskiplace.facility}</p>
       <p>Rating: {indoorskiplace.rating}</p>
       <p>Average price per hour: €{indoorskiplace.priceAveragePerHour}</p>
+      <h3>Invite your friends!</h3>
+      <SharingButtons id={indoorskiplace.id} name={indoorskiplace.name} />
+      <h3>Reviews</h3>
       <Reviews id={indoorskiplace.id} />
     </>
   );
