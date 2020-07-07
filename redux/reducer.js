@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 import { HYDRATE } from "next-redux-wrapper";
 import count from "./count/reducer";
+import user from "./user/reducer";
 
 const combinedReducer = combineReducers({
   count,
+  user,
 });
 
 const reducer = (state, action) => {
