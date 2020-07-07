@@ -29,3 +29,25 @@ export const login = (email, password) => {
     }
   };
 };
+
+export const signUp = (name, email, password) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.post(`http://localhost:4000/signup`, {
+        name,
+        email,
+        password,
+      });
+
+      console.log(response.data);
+
+      dispatch(loginUser(response.data));
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data.message);
+      } else {
+        console.log(error.message);
+      }
+    }
+  };
+};

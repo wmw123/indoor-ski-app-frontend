@@ -1,35 +1,46 @@
 import React, { useEffect } from "react";
-import Link from "next/link";
 import { connect } from "react-redux";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../redux/user/action";
+import { signUp } from "../../redux/user/action";
 import { selectToken } from "../../redux/user/selector";
 import Router from "next/router";
 
-const LoginUser = () => {
+const SignupUser = () => {
   const dispatch = useDispatch();
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const token = useSelector(selectToken);
 
   useEffect(() => {
     if (token !== null) {
-      Router.push("/login");
+      Router.push("/signup");
     }
   }, [token, Router]);
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    dispatch(login(email, password));
+    dispatch(signUp(name, email, password));
 
+    setName("");
     setEmail("");
     setPassword("");
   }
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <p>
+          <label>
+            Name:{" "}
+            <input
+              type="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </label>
+        </p>
         <p>
           <label>
             Email:{" "}
@@ -51,14 +62,11 @@ const LoginUser = () => {
           </label>
         </p>
         <p>
-          <button type="submit">Login</button>
+          <button type="submit">Register</button>
         </p>
       </form>
-      <Link href="/signup">
-        <a title="Sign up">Click here to sign up</a>
-      </Link>
     </div>
   );
 };
 
-export default connect(null, null)(LoginUser);
+export default connect(null, null)(SignupUser);
