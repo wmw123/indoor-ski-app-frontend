@@ -2,6 +2,7 @@ import Link from "next/link";
 import Head from "next/head";
 import NavBar from "../components/NavBar";
 import Layout from "../components/Layout";
+import Login from "../components/Login";
 
 export default function SignUp() {
   return (
@@ -16,6 +17,7 @@ export default function SignUp() {
           <a>Back to home</a>
         </Link>
       </h2>
+      <Login />
     </>
   );
 }
