@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { connect } from "react-redux";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/user/action";
+import { selectToken } from "../../redux/user/selector";
+import Router from "next/router";
 
 const LoginUser = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const token = useSelector(selectToken);
+
+  useEffect(() => {
+    if (token !== null) {
+      Router.push("/login");
+    }
+  }, [token, Router]);
 
   function handleSubmit(event) {
     event.preventDefault();
