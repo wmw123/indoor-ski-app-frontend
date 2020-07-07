@@ -26,7 +26,11 @@ export default function NavBar() {
               <a title="Sign up">Sign up</a>
             </Link>
           </li>
-          <li>♡{wishlistCount}</li>
+          <li>
+            <Link href="/wishlist">
+              <a title="Wishlist">♡{wishlistCount}</a>
+            </Link>
+          </li>
         </ul>
       </div>
     </>
