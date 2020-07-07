@@ -2,6 +2,7 @@ import Head from "next/head";
 import Layout from "../components/Layout";
 import utilStyles from "../styles/utils.module.css";
 import NavBar from "../components/NavBar";
+import AddCount from "../components/AddCount";
 import Link from "next/link";
 import fetch from "node-fetch";
 
@@ -45,6 +46,7 @@ export default function Home({ allIndoorskiplacesData }) {
             <Link href="/[id]" as={`${id}`}>
               <a>Show details</a>
             </Link>
+            <AddCount id={id} />
           </li>
         ))}
       </ul>

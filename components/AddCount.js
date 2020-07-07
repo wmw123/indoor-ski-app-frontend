@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { addCount } from "../redux/count/action";
 
-const AddCount = ({ count, addCount }) => {
+const AddCount = ({ addCount, id }) => {
   return (
     <div>
       <style jsx>{`
@@ -11,14 +11,10 @@ const AddCount = ({ count, addCount }) => {
           padding: 0 0 20px 0;
         }
       `}</style>
-      <button onClick={addCount}>Add to wishlist</button>
+      <button onClick={() => addCount(id)}>Add to wishlist</button>
     </div>
   );
 };
-
-const mapStateToProps = (state) => ({
-  count: state.count.count,
-});
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -26,4 +22,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddCount);
+export default connect(null, mapDispatchToProps)(AddCount);
