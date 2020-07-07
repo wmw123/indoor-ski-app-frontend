@@ -7,10 +7,8 @@ import { selectToken } from "../../redux/user/selector";
 import Router from "next/router";
 
 const AddReview = ({ indoorskiplaceId }) => {
-  //   const dispatch = useDispatch();
   const [rating, setRating] = useState("");
   const [quote, setQuote] = useState("");
-  const token = useSelector(selectToken);
   const dispatch = useDispatch();
 
   function handleSubmit(event) {
