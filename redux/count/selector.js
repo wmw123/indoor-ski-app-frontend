@@ -1,1 +1,1 @@
-export const selectWishlistCount = (state) => state.count.count;
+export const selectWishlistCount = (state) => state.count.wishlist.length;
