@@ -13,6 +13,11 @@ export default function reducer(state = userInitialState, action) {
       //localStorage.setItem("token", action.payload.token);
       return { ...state, ...action.payload };
     }
+    case userActionTypes.LOGOUT: {
+      //localStorage.removeItem("token");
+      return { ...userInitialState, token: null };
+    }
+
     default:
       return state;
   }

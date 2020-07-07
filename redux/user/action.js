@@ -2,12 +2,15 @@ import axios from "axios";
 
 export const userActionTypes = {
   LOGIN: "LOGIN",
+  LOGOUT: "LOGOUT",
 };
 
 export const loginUser = (userWithToken) => (dispatch) => {
   console.log("userwithtoken", userWithToken);
   return dispatch({ type: userActionTypes.LOGIN, payload: userWithToken });
 };
+
+export const logOut = () => ({ type: userActionTypes.LOGOUT });
 
 export const login = (email, password) => {
   return async (dispatch, getState) => {
