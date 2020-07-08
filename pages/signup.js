@@ -9,6 +9,10 @@ export default function SignUp() {
     <>
       <Head>
         <title>Sign up</title>
+        <meta
+          name={`Sign up`}
+          content={`Sign up and let us know what you think!`}
+        />
       </Head>
       <NavBar />
       <h1>Sign up</h1>

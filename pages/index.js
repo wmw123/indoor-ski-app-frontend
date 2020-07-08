@@ -24,6 +24,10 @@ export default function Home({ allIndoorskiplacesData }) {
     <>
       <Head>
         <title>Indoor Ski Places in the Netherlands</title>
+        <meta
+          name={`All ${indoorskiplaces.length} indoor ski places in the Netherlands `}
+          content={`Check out all the ${indoorskiplaces.length} indoor ski places! Invite your friends and write a review now`}
+        />
       </Head>
       <NavBar />
       <img

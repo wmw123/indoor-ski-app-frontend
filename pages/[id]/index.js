@@ -21,7 +21,11 @@ export default function IndoorskiplacePage({ indoorskiplace }) {
   return (
     <>
       <Head>
-        <title>Indoor ski place Page</title>
+        <title>Indoor ski place {indoorskiplace.name}</title>
+        <meta
+          name={`${indoorskiplace.name} indoor ski place `}
+          content={`Want to visit the ${indoorskiplace.facility} ${indoorskiplace.name}? Invite your friends and let's go!`}
+        />
       </Head>
       <NavBar />
       <img src={indoorskiplace.imageUrl} alt={indoorskiplace.name}></img>

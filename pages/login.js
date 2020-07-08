@@ -7,6 +7,10 @@ export default function Login() {
     <>
       <Head>
         <title>Log in</title>
+        <meta
+          name={`Log in to review indoor ski places`}
+          content={`Log in and let us know what you think!`}
+        />
       </Head>
       <NavBar />
       <div>
