@@ -4,16 +4,25 @@ import NavBar from "../components/NavBar";
 import Layout from "../components/Layout";
 import { useSelector } from "react-redux";
 import { selectWishlist } from "../redux/count/selector";
+import WishlistItems from "../components/WishlistItem";
 
 export default function Wishlist({ indoorskiplaces }) {
   const wishlistItems = useSelector(selectWishlist);
 
-  console.log("indoorskiplaces", indoorskiplaces.indoorskiplaces);
   const allIndoorskiplaces = indoorskiplaces.indoorskiplaces;
 
-  // to do: compare indoorskiplaces.id with wishlistItems and make new array
-  // const check = allIndoorskiplaces.filter((id) => id !== wishlistItems);
-  // console.log("check", check);
+  const list = allIndoorskiplaces.filter(function (allIndoorskiplace) {
+    const id = allIndoorskiplace.id;
+
+    const itemsOnTheList = wishlistItems.find(function (wishlistItem) {
+      return wishlistItem === id;
+    });
+
+    return itemsOnTheList;
+  });
+
+  // To do: display the filtered list instead of the wishlistitems
+  // console.log("Did we get the filtered list?", list);
 
   return (
     <>
@@ -27,12 +36,6 @@ export default function Wishlist({ indoorskiplaces }) {
           return <li key={wishlistItem}>{wishlistItem}</li>;
         })}
       </ul>
-
-      <h2>
-        <Link href="/">
-          <a>Back to home</a>
-        </Link>
-      </h2>
     </>
   );
 }
