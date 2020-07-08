@@ -8,6 +8,8 @@ import SharingButtons from "../../components/SharingButtons";
 import AddCount from "../../components/AddCount";
 import AddReview from "../../components/AddReview";
 import { selectToken } from "../../redux/user/selector";
+import Layout from "../../components/Layout";
+import HeaderImage from "../../components/HeaderImage";
 
 export default function IndoorskiplacePage({ indoorskiplace }) {
   const token = useSelector(selectToken);
@@ -27,29 +29,36 @@ export default function IndoorskiplacePage({ indoorskiplace }) {
           content={`Want to visit the ${indoorskiplace.facility} ${indoorskiplace.name}? Invite your friends and let's go!`}
         />
       </Head>
-      <NavBar />
-      <img src={indoorskiplace.imageUrl} alt={indoorskiplace.name}></img>
-      <div>
-        <h2>{indoorskiplace.name}</h2>
-        <p>{indoorskiplace.description}</p>
-      </div>
-      <div>
-        <p>Type of facility: {indoorskiplace.facility}</p>
-        <p>Rating: {indoorskiplace.rating}</p>
-        <p>Average price per hour: €{indoorskiplace.priceAveragePerHour}</p>
-      </div>
-      <div>
-        <h3>Add this spot to your wishlist</h3>
-        <AddCount id={indoorskiplace.id} />
-      </div>
-      <div>
-        <h3>Write a reveiw</h3>
-        {addReviewVisibleOrNot}
-      </div>
-      <h3>Invite your friends!</h3>
-      <SharingButtons id={indoorskiplace.id} name={indoorskiplace.name} />
-      <h3>Reviews</h3>
-      <Reviews id={indoorskiplace.id} />
+      <Layout>
+        <HeaderImage
+          h1={indoorskiplace.name}
+          imageUrl={indoorskiplace.imageUrl}
+        />
+        <div>
+          <p>{indoorskiplace.description}</p>
+        </div>
+        <div>
+          <p>Type of facility: {indoorskiplace.facility}</p>
+          <p>Rating: {indoorskiplace.rating}</p>
+          <p>Average price per hour: €{indoorskiplace.priceAveragePerHour}</p>
+        </div>
+        <div>
+          <h3>Add this spot to your wishlist</h3>
+          <AddCount id={indoorskiplace.id} />
+        </div>
+        <div>
+          <h3>Write a reveiw</h3>
+          {addReviewVisibleOrNot}
+        </div>
+        <div>
+          <h3>Invite your friends!</h3>
+          <SharingButtons id={indoorskiplace.id} name={indoorskiplace.name} />
+        </div>
+        <div>
+          <h3>Reviews</h3>
+          <Reviews id={indoorskiplace.id} />
+        </div>
+      </Layout>
     </>
   );
 }

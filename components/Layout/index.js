@@ -1,6 +1,7 @@
 import styles from "./layout.module.css";
 import NavBar from "../NavBar";
 import Footer from "../Footer";
+import HeaderImage from "../HeaderImage";
 
 export default function Layout({ children }) {
   return (
