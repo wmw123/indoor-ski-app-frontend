@@ -33,13 +33,14 @@ export default function Wishlist({ indoorskiplaces }) {
           content={`Invite your friends and let's go!`}
         />
       </Head>
-      <NavBar />
-      <h1>Wishlist</h1>
-      <ul>
-        {wishlistItems.map((wishlistItem, key) => {
-          return <li key={wishlistItem}>{wishlistItem}</li>;
-        })}
-      </ul>
+      <Layout>
+        <h1>Wishlist</h1>
+        <ul>
+          {wishlistItems.map((wishlistItem, key) => {
+            return <li key={wishlistItem}>{wishlistItem}</li>;
+          })}
+        </ul>
+      </Layout>
     </>
   );
 }

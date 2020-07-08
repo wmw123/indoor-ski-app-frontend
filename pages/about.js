@@ -14,16 +14,17 @@ export default function About() {
           content={`Want to learn more about indoor ski places in the Netherlands? Check out these tip, tricks and stats!`}
         />
       </Head>
-      <NavBar />
-      <h1>About</h1>
-      <h2>
-        <Link href="/">
-          <a>Back to home</a>
-        </Link>
-      </h2>
-      <div>
-        <AddCount />
-      </div>
+      <Layout>
+        <h1>About</h1>
+        <h2>
+          <Link href="/">
+            <a>Back to home</a>
+          </Link>
+        </h2>
+        <div>
+          <AddCount />
+        </div>
+      </Layout>
     </>
   );
 }

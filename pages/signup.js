@@ -14,10 +14,10 @@ export default function SignUp() {
           content={`Sign up and let us know what you think!`}
         />
       </Head>
-      <NavBar />
-      <h1>Sign up</h1>
-
-      <SignupUser />
+      <Layout>
+        <h1>Sign up</h1>
+        <SignupUser />
+      </Layout>
     </>
   );
 }

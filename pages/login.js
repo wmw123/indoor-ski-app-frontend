@@ -1,6 +1,7 @@
 import Head from "next/head";
 import NavBar from "../components/NavBar";
 import LoginUser from "../components/Login";
+import Layout from "../components/Layout";
 
 export default function Login() {
   return (
@@ -12,11 +13,12 @@ export default function Login() {
           content={`Log in and let us know what you think!`}
         />
       </Head>
-      <NavBar />
-      <div>
-        <h1>Log in</h1>
-        <LoginUser />
-      </div>
+      <Layout>
+        <div>
+          <h1>Log in</h1>
+          <LoginUser />
+        </div>
+      </Layout>
     </>
   );
 }
