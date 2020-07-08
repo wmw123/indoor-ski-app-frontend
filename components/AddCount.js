@@ -10,9 +10,9 @@ const AddCount = ({ addCount, id }) => {
   const itemInWishlistYesOrNo = wishlist.includes(id) ? "♥" : "♡";
 
   return (
-    <div>
+    <>
       <button onClick={() => addCount(id)}>{itemInWishlistYesOrNo}</button>
-    </div>
+    </>
   );
 };
 

@@ -37,7 +37,6 @@
   overflow: hidden;
   text-align: center;
   box-sizing: border-box;
-  border: 1px solid #ddd;
 }
 
 .indoorskiplaceImage {
@@ -52,10 +51,15 @@
   object-fit: cover;
 }
 
-.indoorskiplaceImage p {
+.indoorskiplaceItem p {
+  padding: 0.5rem;
+  background: black;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-.indoorskiplaceItem > .name {
+.indoorskiplaceImage > .name {
   font-size: 20px;
   font-weight: bold;
 }

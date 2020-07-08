@@ -11,13 +11,13 @@
 
 .container ul {
   list-style: none;
-  display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
 .container ul li {
   margin-right: 1em;
+  display: flex;
+  flex-direction: column;
 }
 
 .container ul li a {
