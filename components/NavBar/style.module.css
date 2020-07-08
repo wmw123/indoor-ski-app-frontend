@@ -3,7 +3,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: grey;
+  background-color: black;
   padding-left: 1em;
 }
 
@@ -19,13 +19,13 @@
 }
 
 .container ul li a {
-  color: black;
+  color: white;
   text-decoration: none;
   font-weight: bold;
 }
 
 .container p {
-  color: black;
+  color: white;
   font-size: 22px;
   font-weight: bold;
 }
