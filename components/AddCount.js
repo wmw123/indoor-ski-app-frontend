@@ -1,17 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { addCount } from "../redux/count/action";
+import { useSelector } from "react-redux";
+import { selectWishlist } from "../redux/count/selector";
 
 const AddCount = ({ addCount, id }) => {
+  const wishlist = useSelector(selectWishlist);
+  const itemInWishlistYesOrNo = wishlist.includes(id) ? "♥" : "♡";
+
   return (
     <div>
-      <style jsx>{`
-        div {
-          padding: 0 0 20px 0;
-        }
-      `}</style>
-      <button onClick={() => addCount(id)}>Add to wishlist</button>
+      <button onClick={() => addCount(id)}>{itemInWishlistYesOrNo}</button>
     </div>
   );
 };

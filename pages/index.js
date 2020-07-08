@@ -36,9 +36,10 @@ export default function Home({ allIndoorskiplacesData }) {
         <div className={utilStyles.indoorskiplacesList}>
           {indoorskiplaces.map(({ id, name, imageUrl }) => (
             <div className={utilStyles.indoorskiplaceItem} key={id}>
-              <div className={utilStyles.indoorskiplaceImage}>
-                <img src={imageUrl} alt={name}></img>
-              </div>
+              <div
+                style={{ backgroundImage: `url(${imageUrl})` }}
+                className={utilStyles.indoorskiplaceImage}
+              ></div>
               <p className={utilStyles.name}>{name}</p>
               <Link href="/[id]" as={`${id}`}>
                 <a>Show details</a>

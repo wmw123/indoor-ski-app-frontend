@@ -40,16 +40,19 @@
   border: 1px solid #ddd;
 }
 
-.findoorskiplaceImage {
+.indoorskiplaceImage {
   height: 200px;
   background-size: cover;
   background-position: center;
 }
 
-.findoorskiplaceImage img {
+.indoorskiplaceImage img {
   width: 100%;
-  height: 100px;
+  height: 15rem;
   object-fit: cover;
+}
+
+.indoorskiplaceImage p {
 }
 
 .indoorskiplaceItem > .name {
