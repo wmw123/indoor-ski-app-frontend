@@ -23,7 +23,7 @@ export default function IndoorskiplacePage({ indoorskiplace }) {
       <Head>
         <title>Indoor ski place {indoorskiplace.name}</title>
         <meta
-          name={`${indoorskiplace.name} indoor ski place `}
+          name="description"
           content={`Want to visit the ${indoorskiplace.facility} ${indoorskiplace.name}? Invite your friends and let's go!`}
         />
       </Head>

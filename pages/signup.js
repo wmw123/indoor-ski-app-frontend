@@ -10,7 +10,7 @@ export default function SignUp() {
       <Head>
         <title>Sign up</title>
         <meta
-          name={`Sign up`}
+          name="description"
           content={`Sign up and let us know what you think!`}
         />
       </Head>

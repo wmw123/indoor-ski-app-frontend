@@ -29,7 +29,7 @@ export default function Wishlist({ indoorskiplaces }) {
       <Head>
         <title>Wishlist</title>
         <meta
-          name={`Your wishlist of indoor ski places to go`}
+          name="description"
           content={`Invite your friends and let's go!`}
         />
       </Head>

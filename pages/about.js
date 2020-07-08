@@ -10,7 +10,7 @@ export default function About() {
       <Head>
         <title>About</title>
         <meta
-          name={`About indoor ski places in the Netherlands `}
+          name="description"
           content={`Want to learn more about indoor ski places in the Netherlands? Check out these tip, tricks and stats!`}
         />
       </Head>
