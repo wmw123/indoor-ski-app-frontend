@@ -9,9 +9,9 @@ export default function LoggedOut() {
   const user = useSelector(selectUser);
   return (
     <>
-      <li>{user.name}</li>
+      <li>{user.email}</li>
       <li>
-        <button onClick={() => dispatch(logOut())}>Logout</button>
+        <button onClick={() => dispatch(logOut())}>Log out</button>
       </li>
     </>
   );

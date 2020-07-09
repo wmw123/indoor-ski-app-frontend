@@ -3,12 +3,13 @@ import Link from "next/link";
 import NavBar from "../../components/NavBar";
 import fetch from "node-fetch";
 import { useDispatch, useSelector } from "react-redux";
+import { selectToken } from "../../redux/user/selector";
+import styles from "./style.module.css";
+import Layout from "../../components/Layout";
 import Reviews from "../../components/Reviews";
 import SharingButtons from "../../components/SharingButtons";
 import AddCount from "../../components/AddCount";
 import AddReview from "../../components/AddReview";
-import { selectToken } from "../../redux/user/selector";
-import Layout from "../../components/Layout";
 import HeaderImage from "../../components/HeaderImage";
 
 export default function IndoorskiplacePage({ indoorskiplace }) {
@@ -34,30 +35,41 @@ export default function IndoorskiplacePage({ indoorskiplace }) {
           h1={indoorskiplace.name}
           imageUrl={indoorskiplace.imageUrl}
         />
-        <div>
-          <p>{indoorskiplace.description}</p>
-        </div>
-        <div>
-          <p>Type of facility: {indoorskiplace.facility}</p>
-          <p>Rating: {indoorskiplace.rating}</p>
-          <p>Average price per hour: €{indoorskiplace.priceAveragePerHour}</p>
-        </div>
-        <div>
-          <h3>Add this spot to your wishlist</h3>
-          <AddCount id={indoorskiplace.id} />
-        </div>
-        <div>
-          <h3>Write a reveiw</h3>
-          {addReviewVisibleOrNot}
-        </div>
-        <div>
-          <h3>Invite your friends!</h3>
-          <SharingButtons id={indoorskiplace.id} name={indoorskiplace.name} />
-        </div>
-        <div>
-          <h3>Reviews</h3>
-          <Reviews id={indoorskiplace.id} />
-        </div>
+        <section className={styles.container}>
+          <div className={styles.wishlist}>
+            <h3>Add this spot to your wishlist</h3>
+            <AddCount id={indoorskiplace.id} />
+          </div>
+          <div className={styles.invite}>
+            <h3>Invite your friends!</h3>
+            <div className={styles.inviteItems}>
+              <SharingButtons
+                id={indoorskiplace.id}
+                name={indoorskiplace.name}
+              />
+            </div>
+          </div>
+
+          <div className={styles.description}>
+            <p>{indoorskiplace.description}</p>
+          </div>
+          <div className={styles.info}>
+            <p>Type of facility: {indoorskiplace.facility}</p>
+            <p>Overall rating: {indoorskiplace.rating}</p>
+            <p>Average price per hour: €{indoorskiplace.priceAveragePerHour}</p>
+          </div>
+          <div className={styles.logo}>logo</div>
+
+          <div className={styles.review}>
+            <h3>Reviews</h3>
+            <Reviews id={indoorskiplace.id} />
+          </div>
+
+          <div className={styles.addReview}>
+            <h3>Write a review</h3>
+            {addReviewVisibleOrNot}
+          </div>
+        </section>
       </Layout>
     </>
   );

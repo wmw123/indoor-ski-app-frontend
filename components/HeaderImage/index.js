@@ -6,11 +6,13 @@ export default function HeaderImage({ h1, imageUrl }) {
     <div
       style={{ backgroundImage: `url(${imageUrl})` }}
       className={styles.indoorskiplaceImage}
+      title={h1}
     />
   ) : (
     <div
       style={{ backgroundImage: `url(/images/testimage.jpg)` }}
       className={styles.indoorskiplaceImage}
+      title="Summer snow"
     />
   );
 
