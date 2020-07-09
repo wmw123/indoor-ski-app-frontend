@@ -1,0 +1,98 @@
+.container {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container h1 {
+  text-align: center;
+}
+
+.container p {
+  text-align: center;
+}
+
+.default {
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.default ul {
+  list-style-type: none;
+}
+
+.indoorskiplacesList {
+  margin-top: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+}
+
+@media (max-width: 1000px) {
+  .indoorskiplacesList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .indoorskiplacesList {
+    grid-template-columns: 1fr;
+  }
+}
+
+.featured-products-title {
+  text-align: center;
+}
+
+.indoorskiplaceItem {
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.indoorskiplaceImage {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.indoorskiplaceImage img {
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+}
+
+.indoorskiplaceItem p {
+  padding: 0.5rem;
+  background: black;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.indoorskiplaceImage > .name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.indoorskiplaceItem > .description {
+  color: #666;
+}
+
+.indoorskiplaceItem > .price {
+  font-style: italic;
+}
+
+.container button {
+  outline: none;
+  background: black;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 10px 0;
+}

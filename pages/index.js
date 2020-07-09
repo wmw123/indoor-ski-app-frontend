@@ -1,213 +1,115 @@
 import Head from "next/head";
+import utilStyles from "../styles/utils.module.css";
+import NavBar from "../components/NavBar";
+import AddCount from "../components/AddCount";
 import Link from "next/link";
+import fetch from "node-fetch";
+import Footer from "../components/Footer";
+import { useState } from "react";
 
-export default function Home() {
+export async function getStaticProps() {
+  const res = await fetch("http://localhost:4000/indoorskiplaces");
+  const allIndoorskiplacesData = await res.json();
+
+  return {
+    props: {
+      allIndoorskiplacesData,
+    },
+  };
+}
+
+export default function Home({ allIndoorskiplacesData }) {
+  const indoorskiplaces = allIndoorskiplacesData.indoorskiplaces;
+  const [facility, setFacility] = useState();
+  const [location, setLocation] = useState();
+
+  const selectTypeOfFacility = (event) => {
+    console.log(event.target.value);
+    const selectedType = event.target.value;
+    console.log("selected type", selectedType);
+    setFacility(selectedType);
+  };
+
+  const selectTypeOfLocation = (event) => {
+    console.log(event.target.value);
+    const selectedType = event.target.value;
+    console.log("selected type", selectedType);
+    setLocation(selectedType);
+  };
+
+  // const filtered_indoorskiplaces = () => {
+  //   if (facility === "indoor dome") {
+  //     return filter_indoor_dome;
+  //   } else if (facility === "ski simulator") {
+  //     return filter_ski_simulator;
+  //   } else if (facility === "dry slopes") {
+  //     return filter_dry_slopes;
+  //   } else {
+  //     return indoorskiplaces;
+  //   }
+  // };
+
+  // const filter_indoorskiplaces_array = filtered_indoorskiplaces();
+
   return (
-    <div className="container">
+    <>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Indoor Ski Places in the Netherlands</title>
+        <meta
+          name="description"
+          content={`Check out all the ${indoorskiplaces.length} indoor ski places! Invite your friends and write a review now`}
+        />
       </Head>
-
-      <main>
-        <h1 className="title">
-          Read{" "}
-          <Link href="/about">
-            <a>this page!</a>
-          </Link>
-        </h1>
-
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <NavBar />
+      <div className={utilStyles.container}>
+        <h1>Indoor Ski Places in the Netherlands</h1>
+        <div className={utilStyles.indoorskiplacesList}>
+          {indoorskiplaces.map(({ id, name, imageUrl }) => (
+            <div className={utilStyles.indoorskiplaceItem} key={id}>
+              <div
+                style={{ backgroundImage: `url(${imageUrl})` }}
+                className={utilStyles.indoorskiplaceImage}
+              >
+                <div className={utilStyles.name}>
+                  <br />
+                  <AddCount id={id} />
+                  <br />
+                  <Link href="/[id]" as={`${id}`}>
+                    <a>Show details</a>
+                  </Link>
+                </div>
+                <p>{name}</p>
+              </div>
+            </div>
+          ))}
         </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-    </div>
+        <div className={utilStyles.default}>
+          <h2>Find all indoor domes, dry slopes, and ski simulators</h2>
+          <label htmlFor="facility">Select type of facility:</label>
+          <br />
+          <select
+            name="indoorskiplaces"
+            id="indoorskiplaces"
+            onChange={selectTypeOfFacility}
+          >
+            <option value="all">All</option>
+            <option value="indoor dome">Indoor dome</option>
+            <option value="ski simulator">Ski simulator</option>
+            <option value="dry slopes">Dry slopes</option>
+          </select>
+          <br />
+          <label htmlFor="location">Select province:</label>
+          <br />
+          <select name="location" id="location" onChange={selectTypeOfLocation}>
+            <option value="all">All</option>
+            <option value="north holland">North Holland</option>
+            <option value="south holland">South Holland</option>
+            <option value="limburg">Limburg</option>
+            <option value="north brabant">North Brabant</option>
+          </select>
+        </div>
+      </div>
+      <Footer />
+    </>
   );
 }

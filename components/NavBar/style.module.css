@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+  padding-left: 1em;
+}
+
+.container ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container ul li {
+  color: white;
+  margin-right: 1em;
+}
+
+.container ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.container p {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.container button {
+  outline: none;
+  background: white;
+  color: black;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 10px 0;
+}

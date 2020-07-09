@@ -1,0 +1,99 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "wishlist invite"
+    "description description"
+    "sidebar sidebar"
+    "info info"
+    "logo logo"
+    "review review"
+    "addReview addReview";
+  grid-gap: 10px;
+}
+
+.container button {
+  outline: none;
+  background: black;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.description {
+  grid-area: description;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(143, 140, 140, 0.112);
+  color: black;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+  padding-top: 5%;
+}
+
+.wishlist {
+  grid-area: wishlist;
+  padding: 1rem;
+  text-align: center;
+}
+
+.invite {
+  grid-area: invite;
+  padding: 1rem;
+  text-align: center;
+  align-content: center;
+}
+
+.inviteItems {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.info {
+  grid-area: info;
+  padding: 1rem 5rem 1rem 5rem;
+  text-align: left;
+}
+
+.review {
+  grid-area: review;
+  background-color: rgba(143, 140, 140, 0.112);
+  padding: 1rem;
+  text-align: center;
+}
+
+.logo {
+  grid-area: logo;
+  text-align: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.addReview {
+  grid-area: addReview;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 736px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 500px 500px 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      ". wishlist invite ."
+      ". description description ."
+      ". info logo ."
+      ". review review ."
+      ". addReview addReview .";
+    grid-gap: 10px;
+  }
+}
