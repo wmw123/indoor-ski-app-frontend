@@ -55,7 +55,9 @@ export default function Wishlist({ indoorskiplaces }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`http://localhost:4000/indoorskiplaces`);
+  const res = await fetch(
+    `https://indoor-ski-backend.herokuapp.com/indoorskiplaces`
+  );
   const indoorskiplaces = await res.json();
 
   return {

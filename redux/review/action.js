@@ -19,7 +19,7 @@ export const addNewReview = (rating, quote, indoorskiplaceId) => {
 
     try {
       const response = await axios.post(
-        `http://localhost:4000/review`,
+        `https://indoor-ski-backend.herokuapp.com/review`,
         {
           rating,
           quote,

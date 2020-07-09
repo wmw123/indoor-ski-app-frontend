@@ -78,7 +78,9 @@ export default function IndoorskiplacePage({ indoorskiplace }) {
 export async function getStaticProps(context) {
   const { id } = context.params;
 
-  const res = await fetch(`http://localhost:4000/indoorskiplaces/${id}`);
+  const res = await fetch(
+    `https://indoor-ski-backend.herokuapp.com/indoorskiplaces/${id}`
+  );
   const indoorskiplace = await res.json();
 
   return {
@@ -89,7 +91,9 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch("http://localhost:4000/indoorskiplaces");
+  const res = await fetch(
+    "https://indoor-ski-backend.herokuapp.com/indoorskiplaces"
+  );
   const allIndoorskiplacesData = await res.json();
 
   const ids = allIndoorskiplacesData.indoorskiplaces.map(
