@@ -8,7 +8,9 @@ import Footer from "../components/Footer";
 import { useState } from "react";
 
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:4000/indoorskiplaces");
+  const res = await fetch(
+    "https://indoor-ski-backend.herokuapp.com/indoorskiplaces"
+  );
   const allIndoorskiplacesData = await res.json();
 
   return {

@@ -20,10 +20,13 @@ const tokenStillValid = (userWithoutToken) => ({
 export const login = (email, password) => {
   return async (dispatch, getState) => {
     try {
-      const response = await axios.post(`http://localhost:4000/login`, {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        `https://indoor-ski-backend.herokuapp.com/login`,
+        {
+          email,
+          password,
+        }
+      );
 
       dispatch(loginUser(response.data));
     } catch (error) {
@@ -39,11 +42,14 @@ export const login = (email, password) => {
 export const signUp = (name, email, password) => {
   return async (dispatch, getState) => {
     try {
-      const response = await axios.post(`http://localhost:4000/signup`, {
-        name,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        `https://indoor-ski-backend.herokuapp.com/signup`,
+        {
+          name,
+          email,
+          password,
+        }
+      );
 
       console.log(response.data);
 
@@ -69,9 +75,12 @@ export const getUserWithStoredToken = () => {
     try {
       // if we do have a token,
       // check wether it is still valid or if it is expired
-      const response = await axios.get(`http://localhost:4000/me`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await axios.get(
+        `https://indoor-ski-backend.herokuapp.com/me`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
 
       // token is still valid
       dispatch(tokenStillValid(response.data));
