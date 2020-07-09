@@ -3,6 +3,7 @@ import Head from "next/head";
 import NavBar from "../components/NavBar";
 import Layout from "../components/Layout";
 import AddCount from "../components/AddCount";
+import HeaderImage from "../components/HeaderImage";
 
 export default function About() {
   return (
@@ -15,14 +16,11 @@ export default function About() {
         />
       </Head>
       <Layout>
-        <h1>About</h1>
-        <h2>
-          <Link href="/">
-            <a>Back to home</a>
-          </Link>
-        </h2>
+        <HeaderImage h1="About" />
         <div>
-          <AddCount />
+          <p>
+            A lot of cool facts about the ski indoor places in the Netherlands!
+          </p>
         </div>
       </Layout>
     </>

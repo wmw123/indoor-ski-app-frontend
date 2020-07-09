@@ -8,7 +8,10 @@ export default function HeaderImage({ h1, imageUrl }) {
       className={styles.indoorskiplaceImage}
     />
   ) : (
-    <img src="/images/testimage.jpg" alt="indoor ski place"></img>
+    <div
+      style={{ backgroundImage: `url(/images/testimage.jpg)` }}
+      className={styles.indoorskiplaceImage}
+    />
   );
 
   return (

@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import { useSelector } from "react-redux";
 import { selectWishlist } from "../redux/count/selector";
 import WishlistItems from "../components/WishlistItem";
-
+import HeaderImage from "../components/HeaderImage";
 export default function Wishlist({ indoorskiplaces }) {
   const wishlistItems = useSelector(selectWishlist);
 
@@ -34,7 +34,7 @@ export default function Wishlist({ indoorskiplaces }) {
         />
       </Head>
       <Layout>
-        <h1>Wishlist</h1>
+        <HeaderImage h1="Wishlist" />
         <ul>
           {wishlistItems.map((wishlistItem, key) => {
             return <li key={wishlistItem}>{wishlistItem}</li>;
