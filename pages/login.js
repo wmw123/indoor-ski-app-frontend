@@ -2,6 +2,7 @@ import Head from "next/head";
 import NavBar from "../components/NavBar";
 import LoginUser from "../components/Login";
 import Layout from "../components/Layout";
+import utilStyles from "../styles/utils.module.css";
 
 export default function Login() {
   return (
@@ -14,7 +15,7 @@ export default function Login() {
         />
       </Head>
       <Layout>
-        <div>
+        <div className={utilStyles.default}>
           <h1>Log in</h1>
           <LoginUser />
         </div>

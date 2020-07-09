@@ -4,10 +4,15 @@ import NavBar from "../components/NavBar";
 import Layout from "../components/Layout";
 import { useSelector } from "react-redux";
 import { selectWishlist } from "../redux/count/selector";
+import { selectUser } from "../redux/user/selector";
 import WishlistItems from "../components/WishlistItem";
 import HeaderImage from "../components/HeaderImage";
+import utilStyles from "../styles/utils.module.css";
+import SharingButtons from "../components/SharingButtons";
+
 export default function Wishlist({ indoorskiplaces }) {
   const wishlistItems = useSelector(selectWishlist);
+  const user = useSelector(selectUser);
 
   const allIndoorskiplaces = indoorskiplaces.indoorskiplaces;
 
@@ -35,11 +40,15 @@ export default function Wishlist({ indoorskiplaces }) {
       </Head>
       <Layout>
         <HeaderImage h1="Wishlist" />
-        <ul>
-          {wishlistItems.map((wishlistItem, key) => {
-            return <li key={wishlistItem}>{wishlistItem}</li>;
-          })}
-        </ul>
+        <div className={utilStyles.default}>
+          <h2>Check out your wishlist {user.name}!</h2>
+          <ul>
+            {wishlistItems.map((wishlistItem, key) => {
+              return <li key={wishlistItem}>{wishlistItem}</li>;
+            })}
+          </ul>
+          <SharingButtons />
+        </div>
       </Layout>
     </>
   );

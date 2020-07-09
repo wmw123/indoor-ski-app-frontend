@@ -3,6 +3,7 @@ import Head from "next/head";
 import NavBar from "../components/NavBar";
 import Layout from "../components/Layout";
 import SignupUser from "../components/Signup";
+import utilStyles from "../styles/utils.module.css";
 
 export default function SignUp() {
   return (
@@ -15,8 +16,10 @@ export default function SignUp() {
         />
       </Head>
       <Layout>
-        <h1>Sign up</h1>
-        <SignupUser />
+        <div className={utilStyles.default}>
+          <h1>Sign up</h1>
+          <SignupUser />
+        </div>
       </Layout>
     </>
   );

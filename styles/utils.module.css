@@ -7,6 +7,16 @@
   text-align: center;
 }
 
+.default {
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.default ul {
+  list-style-type: none;
+}
+
 .indoorskiplacesList {
   margin-top: 20px;
   max-width: 1200px;

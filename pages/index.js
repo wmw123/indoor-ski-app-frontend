@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Layout from "../components/Layout";
 import utilStyles from "../styles/utils.module.css";
 import NavBar from "../components/NavBar";
 import AddCount from "../components/AddCount";

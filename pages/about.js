@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar";
 import Layout from "../components/Layout";
 import AddCount from "../components/AddCount";
 import HeaderImage from "../components/HeaderImage";
+import utilStyles from "../styles/utils.module.css";
 
 export default function About() {
   return (
@@ -17,7 +18,7 @@ export default function About() {
       </Head>
       <Layout>
         <HeaderImage h1="About" />
-        <div>
+        <div className={utilStyles.default}>
           <p>
             A lot of cool facts about the ski indoor places in the Netherlands!
           </p>
