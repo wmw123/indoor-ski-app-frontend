@@ -1,7 +1,5 @@
 import fetch from "node-fetch";
-import { useRouter } from "next/router";
 import useSWR from "swr";
-import styles from "./style.module.css";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -16,15 +14,15 @@ export default function Reviews({ id }) {
   }
 
   if (!reviews) {
-    return <div>Loading...</div>;
+    return <div>Loading reviews...</div>;
   }
 
   return (
-    <div className={styles.container}>
+    <>
       {reviews.map((review, key) => {
         return (
           <div key={review.id}>
-            <div className="rating">
+            <div>
               <span>☆</span>
               <span>☆</span>
               <span>☆</span>
@@ -36,6 +34,6 @@ export default function Reviews({ id }) {
           </div>
         );
       })}
-    </div>
+    </>
   );
 }

@@ -3,23 +3,27 @@ import Head from "next/head";
 import NavBar from "../components/NavBar";
 import Layout from "../components/Layout";
 import AddCount from "../components/AddCount";
+import HeaderImage from "../components/HeaderImage";
+import utilStyles from "../styles/utils.module.css";
 
 export default function About() {
   return (
     <>
       <Head>
         <title>About</title>
+        <meta
+          name="description"
+          content={`Want to learn more about indoor ski places in the Netherlands? Check out these tip, tricks and stats!`}
+        />
       </Head>
-      <NavBar />
-      <h1>About</h1>
-      <h2>
-        <Link href="/">
-          <a>Back to home</a>
-        </Link>
-      </h2>
-      <div>
-        <AddCount />
-      </div>
+      <Layout>
+        <HeaderImage h1="About" />
+        <div className={utilStyles.default}>
+          <p>
+            A lot of cool facts about the ski indoor places in the Netherlands!
+          </p>
+        </div>
+      </Layout>
     </>
   );
 }

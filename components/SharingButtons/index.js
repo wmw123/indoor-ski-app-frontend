@@ -1,5 +1,3 @@
-import styles from "./style.module.css";
-
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -11,7 +9,7 @@ import {
 
 export default function SharingButtons({ id, name }) {
   return (
-    <div className={styles.container}>
+    <>
       <div>
         <FacebookShareButton
           // update URL once it's live
@@ -41,6 +39,6 @@ export default function SharingButtons({ id, name }) {
           <EmailIcon size={32} round />
         </EmailShareButton>
       </div>
-    </div>
+    </>
   );
 }

@@ -1,52 +1,94 @@
-.heading2Xl {
-  font-size: 2.5rem;
-  line-height: 1.2;
-  font-weight: 800;
-  letter-spacing: -0.05rem;
-  margin: 1rem 0;
+.container {
+  align-items: center;
+  justify-content: space-between;
 }
 
-.headingXl {
-  font-size: 2rem;
-  line-height: 1.3;
-  font-weight: 800;
-  letter-spacing: -0.05rem;
-  margin: 1rem 0;
+.container h1 {
+  text-align: center;
 }
 
-.headingLg {
-  font-size: 1.5rem;
-  line-height: 1.4;
-  margin: 1rem 0;
+.default {
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
 }
 
-.headingMd {
-  font-size: 1.2rem;
-  line-height: 1.5;
+.default ul {
+  list-style-type: none;
 }
 
-.borderCircle {
-  border-radius: 9999px;
+.indoorskiplacesList {
+  margin-top: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
 }
 
-.colorInherit {
-  color: inherit;
+@media (max-width: 1000px) {
+  .indoorskiplacesList {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.padding1px {
-  padding-top: 1px;
+@media (max-width: 800px) {
+  .indoorskiplacesList {
+    grid-template-columns: 1fr;
+  }
 }
 
-.list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.featured-products-title {
+  text-align: center;
 }
 
-.listItem {
-  margin: 0 0 1.25rem;
+.indoorskiplaceItem {
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: center;
+  box-sizing: border-box;
 }
 
-.lightText {
-  color: #999;
+.indoorskiplaceImage {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.indoorskiplaceImage img {
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+}
+
+.indoorskiplaceItem p {
+  padding: 0.5rem;
+  background: black;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.indoorskiplaceImage > .name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.indoorskiplaceItem > .description {
+  color: #666;
+}
+
+.indoorskiplaceItem > .price {
+  font-style: italic;
+}
+
+.container button {
+  outline: none;
+  background: black;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 10px 0;
 }

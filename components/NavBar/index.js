@@ -12,10 +12,12 @@ export default function NavBar() {
 
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
+  const itemInWishlistYesOrNo = wishlistCount >= 1 ? "♥" : "♡";
+
   return (
     <>
       <div className={styles.container}>
-        <h1>Ski App</h1>
+        <p>☼ ❄ SUMMER SNOW</p>
         <ul>
           <li>
             <Link href="/">
@@ -30,7 +32,10 @@ export default function NavBar() {
           {loginLogoutControls}
           <li>
             <Link href="/wishlist">
-              <a title="Wishlist">♡{wishlistCount}</a>
+              <a title="Wishlist">
+                {itemInWishlistYesOrNo}
+                {wishlistCount}
+              </a>
             </Link>
           </li>
         </ul>

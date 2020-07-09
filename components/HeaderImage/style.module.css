@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.indoorskiplaceImage {
+  width: 100%;
+  height: 15rem;
+  background-size: cover;
+  background-position: center;
+}
+
+.container h1 {
+  position: absolute;
+  text-align: center;
+  margin-top: 10%;
+}
