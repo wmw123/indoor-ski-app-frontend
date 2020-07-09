@@ -3,7 +3,10 @@ import styles from "./style.module.css";
 
 export default function HeaderImage({ h1, imageUrl }) {
   const imageYesOrNo = imageUrl ? (
-    <img src={imageUrl} alt={h1}></img>
+    <div
+      style={{ backgroundImage: `url(${imageUrl})` }}
+      className={styles.indoorskiplaceImage}
+    />
   ) : (
     <img src="/images/testimage.jpg" alt="indoor ski place"></img>
   );
