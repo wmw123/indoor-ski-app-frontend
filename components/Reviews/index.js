@@ -5,7 +5,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function Reviews({ id }) {
   const { data: reviews, error } = useSWR(
-    `http://indoor-ski-backend.herokuapp.com/indoorskiplaces/${id}/reviews`,
+    `https://indoor-ski-backend.herokuapp.com/indoorskiplaces/${id}/reviews`,
     fetcher
   );
 
