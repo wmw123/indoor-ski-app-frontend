@@ -58,7 +58,7 @@
 
 .info {
   grid-area: info;
-  padding: 1rem 5rem 1rem 5rem;
+  padding: 1rem 3rem 1rem 3rem;
   text-align: left;
 }
 
@@ -86,7 +86,7 @@
 @media screen and (min-width: 736px) {
   .container {
     display: grid;
-    grid-template-columns: 1fr 500px 500px 1fr;
+    grid-template-columns: 1fr 350px 350px 1fr;
     grid-template-rows: auto;
     grid-template-areas:
       ". wishlist invite ."

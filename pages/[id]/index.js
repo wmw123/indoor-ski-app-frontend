@@ -18,7 +18,16 @@ export default function IndoorskiplacePage({ indoorskiplace }) {
   const addReviewVisibleOrNot = token ? (
     <AddReview indoorskiplaceId={indoorskiplace.id} />
   ) : (
-    "Log in or sign up to write a review"
+    <div>
+      <p>Log in or sign up to write a review</p>
+      <Link href="/login">
+        <a title="About">Log in</a>
+      </Link>
+      <br />
+      <Link href="/signup">
+        <a title="About">Sign up</a>
+      </Link>
+    </div>
   );
 
   return (

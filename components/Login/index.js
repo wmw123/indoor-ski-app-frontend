@@ -6,12 +6,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/user/action";
 import { selectToken } from "../../redux/user/selector";
 import Router from "next/router";
+import { selectUser } from "../../redux/user/selector";
 
 const LoginUser = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const token = useSelector(selectToken);
+  const user = useSelector(selectUser);
+
+  if (user.email !== null) {
+    Router.back();
+  }
 
   useEffect(() => {
     if (token !== null) {
