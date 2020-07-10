@@ -8,7 +8,6 @@ Hi! :raising_hand_woman: My name is Willemijn, and this is my **portfolio projec
 
 I will explain more about the app, the technologies, and frameworks I used below, as well as my goals for this project and how I got super excited about **Next.js** and **Server Side Rendering** :pray:
 
-
 > **Note:** The Indoor Ski App is an MVP, not a final version. I implemented the most important features, [other ones](https://github.com/users/wmw123/projects/1) will be added in the future.
 
 ## Table of contents
@@ -20,9 +19,8 @@ I will explain more about the app, the technologies, and frameworks I used below
 - [Project user stories and wireframe](#project-user-stories-and-wireframe)
 - [Server repository](#server-repository)
 - [Client repository](#client-repository)
-- [Learn more about Next.js](#learn-more-about-next.js)
+- [Learn more about Next.js](#learn-more-about-next-js)
 - [Other usefull sources](#other-usefull-sources)
-
 
 ## About The App
 
@@ -30,11 +28,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Goals of this project
 
-Besides practicing full-stack development as I learned in the bootcamp, the main focus was to get familiar with Server Side Rendering for SEO purposes. 
+Besides practicing full-stack development as I learned in the bootcamp, the main focus was to get familiar with Server Side Rendering for SEO purposes.
 
 ## Technologies
 
 Front End
+
 - Node.js
 - React
 - Next
@@ -44,6 +43,7 @@ Front End
 - CSS
 
 Back End
+
 - Express
 - REST
 - Sequelize
@@ -51,7 +51,7 @@ Back End
 
 ## Demo
 
-Image of the Homepage
+![Demo of homepage](https://github.com/wmw123/indoor-ski-app-frontend/public/images/homepage.png)
 
 ## Project user stories and wireframe
 
@@ -76,8 +76,9 @@ If you want to check out wich pages are created on build time, try:
 ```bash
 npm run build
 ```
-An example of the output: 
 
+An example of the output:
+![Example of npm run build output](https://github.com/wmw123/indoor-ski-app-frontend/public/images/Build-time-output-after-npm-run-build.png)
 
 ## Learn more about Next.js
 
@@ -90,7 +91,7 @@ To learn more about Next.js, take a look at the following resources:
 
 Because Next.js and it's new hooks getStaticProps and getStaticPaths were new to me - and are very new in general - these sources were really helpful for me (and hopefully for you too!):
 
-- [Next.js tutorial](https://www.youtube.com/watch?v=V3WM11AQgjw&list=PL0JUJlOCq7oxNv16mSGhMMPwzM00UmI4K) 
+- [Next.js tutorial](https://www.youtube.com/watch?v=V3WM11AQgjw&list=PL0JUJlOCq7oxNv16mSGhMMPwzM00UmI4K)
 - [React Data Fetching with Hooks using SWR](https://www.youtube.com/watch?v=oWVW8IqpQ-A)
 - [getStaticPaths hook](https://www.youtube.com/watch?v=QABkof8ygzI&t=652s)
 
