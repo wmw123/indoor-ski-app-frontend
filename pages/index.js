@@ -80,7 +80,7 @@ export default function Home({ allIndoorskiplacesData }) {
                   <p>
                     {name} {""}
                     <Link href="/[id]" as={`${id}`}>
-                      ➔
+                      <a> ➔</a>
                     </Link>
                   </p>
                 </div>
