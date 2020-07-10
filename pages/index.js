@@ -72,15 +72,18 @@ export default function Home({ allIndoorskiplacesData }) {
                 style={{ backgroundImage: `url(${imageUrl})` }}
                 className={utilStyles.indoorskiplaceImage}
               >
-                <div className={utilStyles.name}>
-                  <br />
+                <div className={utilStyles.buttons}>
                   <AddCount id={id} />
-                  <br />
-                  <Link href="/[id]" as={`${id}`}>
-                    <a>Show details</a>
-                  </Link>
                 </div>
-                <p>{name}</p>
+
+                <div className={utilStyles.name}>
+                  <p>
+                    {name} {""}
+                    <Link href="/[id]" as={`${id}`}>
+                      <a> ➔</a>
+                    </Link>
+                  </p>
+                </div>
               </div>
             </div>
           ))}

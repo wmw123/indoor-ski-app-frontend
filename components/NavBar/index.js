@@ -17,7 +17,7 @@ export default function NavBar() {
   return (
     <>
       <div className={styles.container}>
-        <p>☼ ❄ SUMMER SNOW</p>
+        <p>summer☼❄snow</p>
         <ul>
           <li>
             <Link href="/">
