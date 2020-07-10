@@ -1,5 +1,4 @@
 import Head from "next/head";
-import NavBar from "../components/NavBar";
 import LoginUser from "../components/Login";
 import Layout from "../components/Layout";
 import utilStyles from "../styles/utils.module.css";

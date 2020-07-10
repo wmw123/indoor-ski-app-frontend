@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signUp } from "../../redux/user/action";
 import { selectToken } from "../../redux/user/selector";
+import { selectUser } from "../../redux/user/selector";
 import Router from "next/router";
 
 const SignupUser = () => {
@@ -12,6 +13,11 @@ const SignupUser = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const token = useSelector(selectToken);
+  const user = useSelector(selectUser);
+
+  if (user.email !== null) {
+    Router.back();
+  }
 
   useEffect(() => {
     if (token !== null) {
