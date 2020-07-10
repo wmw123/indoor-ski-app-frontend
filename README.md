@@ -1,6 +1,6 @@
 # Indoor Ski App
 
-Click **[here](#)** to see the deployed version :woman_technologist:
+Click **[here](https://indoor-ski-app-frontend.vercel.app/)** to see the deployed version :woman_technologist:
 
 ## Intro
 
@@ -51,7 +51,7 @@ Back End
 
 ## Demo
 
-![Demo of homepage](https://github.com/wmw123/indoor-ski-app-frontend/public/images/homepage.png)
+![Demo of homepage](https://github.com/wmw123/indoor-ski-app-frontend/blob/master/public/images/homepage.png)
 
 ## Project user stories and wireframe
 
@@ -78,7 +78,11 @@ npm run build
 ```
 
 An example of the output:
-![Example of npm run build output](https://github.com/wmw123/indoor-ski-app-frontend/public/images/Build-time-output-after-npm-run-build.png)
+![Example of npm run build output](https://github.com/wmw123/indoor-ski-app-frontend/blob/master/public/images/Build-time-output-after-npm-run-build.png)
+
+### Deployed on Vercel
+
+The frontend was deployed on the [Vercel Platform](https://vercel.com/) which is made by the creators of Next.js.
 
 ## Learn more about Next.js
 
