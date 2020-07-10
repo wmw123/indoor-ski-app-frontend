@@ -4,10 +4,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addNewReview } from "../../redux/review/action";
 import { selectToken } from "../../redux/user/selector";
-import Router from "next/router";
 
 const AddReview = ({ indoorskiplaceId }) => {
-  //   const dispatch = useDispatch();
   const [rating, setRating] = useState("");
   const [quote, setQuote] = useState("");
   const token = useSelector(selectToken);
@@ -20,7 +18,6 @@ const AddReview = ({ indoorskiplaceId }) => {
 
     setRating("");
     setQuote("");
-    Router.push(`/${indoorskiplaceId}`);
   }
   return (
     <div>
