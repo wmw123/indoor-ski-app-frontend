@@ -9,7 +9,9 @@ export default function reducer(state = reviewInitialState, action) {
     case reviewActionTypes.ADD_REVIEW: {
       return { ...state, ...action.payload };
     }
-
+    case reviewActionTypes.REVIEWS_LIST: {
+      return { ...state, reviews: action.payload };
+    }
     default:
       return state;
   }
