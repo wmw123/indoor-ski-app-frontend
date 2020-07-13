@@ -1,14 +1,13 @@
 import Link from "next/link";
 import Head from "next/head";
-import NavBar from "../components/NavBar";
 import Layout from "../components/Layout";
 import { useSelector } from "react-redux";
 import { selectWishlist } from "../redux/count/selector";
 import { selectUser } from "../redux/user/selector";
-import WishlistItems from "../components/WishlistItem";
 import HeaderImage from "../components/HeaderImage";
 import utilStyles from "../styles/utils.module.css";
 import SharingButtons from "../components/SharingButtons";
+import AddCount from "../components/AddCount";
 
 export default function Wishlist({ indoorskiplaces }) {
   const wishlistItems = useSelector(selectWishlist);
@@ -26,9 +25,6 @@ export default function Wishlist({ indoorskiplaces }) {
     return itemsOnTheList;
   });
 
-  // To do: display the filtered list instead of the wishlistitems
-  // console.log("Did we get the filtered list?", list);
-
   return (
     <>
       <Head>
@@ -44,7 +40,32 @@ export default function Wishlist({ indoorskiplaces }) {
           <h2>Check out your wishlist {user.name}!</h2>
           <ul>
             {wishlistItems.map((wishlistItem, key) => {
-              return <li key={wishlistItem}>{wishlistItem}</li>;
+              const itemOnTheList = list.find(function (item) {
+                return item.id === wishlistItem;
+              });
+
+              const info = () => {
+                if (itemOnTheList == undefined) {
+                  return "";
+                } else {
+                  return (
+                    <>
+                      <img
+                        src={itemOnTheList.imageUrl}
+                        style={{ maxWidth: "200px", maxHeight: "200px" }}
+                      />
+                      <p>{itemOnTheList.name}</p>
+                      <div>
+                        <AddCount id={itemOnTheList.id} />
+                      </div>
+                    </>
+                  );
+                }
+              };
+
+              const showInfo = info();
+
+              return <li key={wishlistItem}>{showInfo}</li>;
             })}
           </ul>
           <SharingButtons />
